@@ -30,36 +30,53 @@
     <!-- template for each day (hidden, for cloning) -->
     <div class="timeInputs" style="display: none;">
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <input type="radio" for="None" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
             <label class="btn btn-outline-primary" for="btnradio1">None</label>
           
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <input type="radio" for="Single" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-primary" for="btnradio2">Single</label>
           
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <input type="radio" for="Double" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
             <label class="btn btn-outline-primary" for="btnradio3">Double</label>
         </div>
         <div class="slider slider-single"></div>
         <div class="slider slider-double"></div>
         <br>
-        <label class="time-input-label" for="timeInput1" class="form-label>" id="start-time-label">
-            <input type="time" id="timeInput1" placeholder="Start Time" style="display:none;"> Start Time
-        </label>
-        <label class="time-input-label" for="timeInput2" class="form-label>" id="end-time-label">
-            <input type="time" id="timeInput2" placeholder="End Time" style="display:none;"> End Time
-        </label>
-        <label class="time-input-label" for="timeInput3" class="form-label>" id="start-time-1-label">
-            <input type="time" id="timeInput3" placeholder="Start Time 1" style="display:none;"> Start Time 1
-        </label> 
-        <label class="time-input-label" for="timeInput4" class="form-label>" id="end-time-1-label">
-            <input type="time" id="timeInput4" placeholder="End Time 1" style="display:none;"> End Time 1
-        </label><br style="margin-bottom: 5px;">
-        <label class="time-input-label" for="timeInput5" class="form-label>" id="start-time-2-label">
-            <input type="time" id="timeInput5" placeholder="Start Time 2" style="display:none;"> Start Time 2
-        </label>
-        <label class="time-input-label" for="timeInput6" class="form-label>" id="end-time-2-label">
-            <input type="time" id="timeInput6" placeholder="End Time 2" style="display:none;"> End Time 2
-        </label>
+        <table class="single-table">
+            <tr>
+                <td class="time-input-table">
+                    <label class="time-input-label" for="timeInput1" class="form-label>" id="start-time-label">
+                        <input type="time" id="timeInput1" placeholder="Start Time" style="display:none;"> Start Time
+                    </label>
+                </td><td class="time-input-table">
+                    <label class="time-input-label" for="timeInput2" class="form-label>" id="end-time-label">
+                        <input type="time" id="timeInput2" placeholder="End Time" style="display:none;"> End Time
+                    </label>
+                </td>
+            </tr>
+        </table><table class="double-table">
+            <tr>
+                <td class="time-input-table">
+                    <label class="time-input-label" for="timeInput3" class="form-label>" id="start-time-1-label">
+                        <input type="time" id="timeInput3" placeholder="Start Time 1" style="display:none;"> Start Time 1
+                    </label>
+                </td><td class="time-input-table">
+                    <label class="time-input-label" for="timeInput4" class="form-label>" id="end-time-1-label">
+                        <input type="time" id="timeInput4" placeholder="End Time 1" style="display:none;"> End Time 1
+                    </label><br style="margin-bottom: 5px;">
+                </td>
+            </tr><tr>
+                <td class="time-input-table">
+                    <label class="time-input-label" for="timeInput5" class="form-label>" id="start-time-2-label">
+                        <input type="time" id="timeInput5" placeholder="Start Time 2" style="display:none;"> Start Time 2
+                    </label>
+                </td><td class="time-input-table">
+                    <label class="time-input-label" for="timeInput6" class="form-label>" id="end-time-2-label">
+                        <input type="time" id="timeInput6" placeholder="End Time 2" style="display:none;"> End Time 2
+                    </label>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <!-- jQuery -->
