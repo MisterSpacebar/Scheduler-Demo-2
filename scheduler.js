@@ -51,7 +51,7 @@ $(document).ready(function() {
                 'min': [240],
                 'max': [1440]
             },
-            step: 15
+            step: 1
         });
     
         noUiSlider.create($sliderDouble, {
@@ -61,7 +61,7 @@ $(document).ready(function() {
                 'min': [240],
                 'max': [1440]
             },
-            step: 15
+            step: 1
         });
 
         // Append the sliders to the day section
@@ -103,18 +103,20 @@ $(document).ready(function() {
         }
 
         // Event listener for time inputs to update slider
-        $daySection.find('.start-time-input, .end-time-input').on('change', function () {
+        $daySection.find('#timeInput1, #timeInput2').on('change', function () {
             let startMinutes = timeToMinutes($daySection.find('#timeInput1').val());
             let endMinutes = timeToMinutes($daySection.find('#timeInput2').val());
             $sliderSingle.noUiSlider.set([startMinutes, endMinutes]);
+            console.log([startMinutes, endMinutes]);
         });
 
-        $daySection.find('.start-time-input, .end-time-input').on('change', function () {
+        $daySection.find('#timeInput3, #timeInput4, #timeInput5, #timeInput6').on('change', function () {
             let startMinutesOne = timeToMinutes($daySection.find('#timeInput3').val());
             let endMinutesOne = timeToMinutes($daySection.find('#timeInput4').val());
             let startMinutesTwo = timeToMinutes($daySection.find('#timeInput5').val());
             let endMinutesTwo = timeToMinutes($daySection.find('#timeInput6').val());
             slider.noUiSlider.set([startMinutesOne, endMinutesOne, startMinutesTwo, endMinutesTwo]);
+            console.log([startMinutesOne, endMinutesOne, startMinutesTwo, endMinutesTwo]);
         });
 
         // Hide time inputs and labels
