@@ -1,0 +1,20 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeInputs .day-section {
+    border-bottom: 1px blue; /* Replace "red" with your desired color */
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    height: 150px;
+}
+
+.btn-group {
+    float:right;
+    margin-bottom: 5px;
+}
+
+.slider {
+    max-width: 75%;
+}
