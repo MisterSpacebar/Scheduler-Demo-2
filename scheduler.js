@@ -88,20 +88,6 @@ $(document).ready(function() {
             $daySection.find('#timeInput6').val(timeFormatValues[3]);
         });
 
-        function sliderSingleTimeUpdate() {
-            let startMinutes = timeToMinutes($daySection.find('#timeInput1').val());
-            let endMinutes = timeToMinutes($daySection.find('#timeInput2').val());
-            return [startMinutes, endMinutes];
-        }
-
-        function sliderDoubleTimeUpdate() {
-            let startMinutesOne = timeToMinutes($daySection.find('#timeInput3').val());
-            let endMinutesOne = timeToMinutes($daySection.find('#timeInput4').val());
-            let startMinutesTwo = timeToMinutes($daySection.find('#timeInput5').val());
-            let endMinutesTwo = timeToMinutes($daySection.find('#timeInput6').val());
-            return [startMinutesOne, endMinutesOne, startMinutesTwo, endMinutesTwo];
-        }
-
         // Event listener for time inputs to update slider
         $daySection.find('#timeInput1, #timeInput2').on('change', function () {
             let startMinutes = timeToMinutes($daySection.find('#timeInput1').val());
@@ -115,7 +101,7 @@ $(document).ready(function() {
             let endMinutesOne = timeToMinutes($daySection.find('#timeInput4').val());
             let startMinutesTwo = timeToMinutes($daySection.find('#timeInput5').val());
             let endMinutesTwo = timeToMinutes($daySection.find('#timeInput6').val());
-            slider.noUiSlider.set([startMinutesOne, endMinutesOne, startMinutesTwo, endMinutesTwo]);
+            $sliderDouble.noUiSlider.set([startMinutesOne, endMinutesOne, startMinutesTwo, endMinutesTwo]);
             console.log([startMinutesOne, endMinutesOne, startMinutesTwo, endMinutesTwo]);
         });
 
@@ -134,8 +120,8 @@ $(document).ready(function() {
                     $daySection.find('input[type="time"]').hide();
                     $daySection.find('.time-input-label').hide();
 
-                    $('.slider-single').hide();
-                    $('.slider-double').hide();
+                    $(`#slider-single-${day}`).hide();
+                    $(`#slider-double-${day}`).hide();
                     break;
                 case 'Single':
                     console.log(thisDay + " radio button is selected (ONE)");
@@ -146,7 +132,8 @@ $(document).ready(function() {
                     $(`#slider-single-${day}`).show();
                     $(`#slider-double-${day}`).hide();
                     $sliderSingle.noUiSlider.updateOptions({
-                        start: sliderSingleTimeUpdate(),
+                        start: [timeToMinutes($daySection.find('#timeInput1').val()),
+                                timeToMinutes($daySection.find('#timeInput2').val())],
                         connect: [true],
                     }, true);
                     break;
@@ -160,7 +147,10 @@ $(document).ready(function() {
                     $(`#slider-double-${day}`).show();
                     $(`#slider-single-${day}`).hide();
                     $sliderDouble.noUiSlider.updateOptions({
-                        start: sliderDoubleTimeUpdate(),
+                        start: [timeToMinutes($daySection.find('#timeInput3').val()),
+                                timeToMinutes($daySection.find('#timeInput4').val()),
+                                timeToMinutes($daySection.find('#timeInput5').val()),
+                                timeToMinutes($daySection.find('#timeInput6').val())],
                         connect: [true, true, true, false],
                     }, true);
                     break;
