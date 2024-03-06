@@ -18,3 +18,8 @@
 .slider {
     max-width: 75%;
 }
+
+.time-input-table {
+    padding-left: 10px;
+    padding-right: 10px;
+}
